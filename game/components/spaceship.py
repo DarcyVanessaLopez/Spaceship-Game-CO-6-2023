@@ -30,24 +30,28 @@ class Spaceship:
     
     def draw(self, screen):
         screen.blit(self.image, self.rect)
+#tarea clase 1
         
     def move_left(self, game_speed):
-        if self.rect.left > 0:
-            self.rect.x -= game_speed
+        self.rect.x -= game_speed
+        if self.rect.right < 0:
+            self.rect.x = SCREEN_WIDTH
             
     def move_right(self, game_speed):
-        if self.rect.right < SCREEN_WIDTH:
-            self.rect.x += game_speed
+        self.rect.x += game_speed
+        if self.rect.left > SCREEN_WIDTH:
+            self.rect.x = -self.rect.width
             
     def move_up(self, game_speed):
-        if self.rect.top > 250:
-            self.rect.y -= game_speed   
+        self.rect.y -= game_speed
+        if self.rect.bottom < 0:
+            self.rect.y = SCREEN_HEIGHT
             
     def move_down(self, game_speed):
-        if self.rect.bottom < SCREEN_HEIGHT:
-            self.rect.y += game_speed
-            
-             
+        self.rect.y += game_speed
+        if self.rect.top > SCREEN_HEIGHT:
+            self.rect.y = -self.rect.height
+
         
         
         
